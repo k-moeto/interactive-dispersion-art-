@@ -1,12 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap');
+
 :root {
-    --bg-color: #1a1a1a;
-    --text-color: #e0e0e0;
-    --primary-color: #00bcd4;
-    --container-bg: #2c2c2c;
+    --bg-color: #fdfbf7;
+    --text-color: #333333;
+    --header-color: #2c3e50;
+    --primary-color: #4a69bd; /* 落ち着いた青 */
+    --container-bg: #ffffff;
+    --border-color: #dddddd;
+    --slider-bg: #e0e0e0;
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Noto Sans JP', sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
     margin: 0;
@@ -15,6 +20,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    font-weight: 300;
 }
 
 .container {
@@ -24,53 +30,68 @@ body {
 }
 
 .header h1 {
-    color: var(--primary-color);
+    color: var(--header-color);
     margin-bottom: 10px;
+    font-weight: 700;
 }
 
 .header p {
-    font-size: 0.9em;
-    line-height: 1.6;
-    margin-bottom: 20px;
+    font-size: 1em;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    color: #555;
 }
 
 #canvas-container {
-    margin-bottom: 20px;
-    display: inline-block; /* 中央揃えのため */
-    border: 1px solid #444;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    margin-bottom: 30px;
+    /* display: inline-block; を削除 */
+    width: 100%; /* 幅を親コンテナに合わせる */
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    overflow: hidden; /* キャンバスの角を丸めるため */
 }
 
 #controls {
     background-color: var(--container-bg);
-    padding: 20px;
+    padding: 25px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    border: 1px solid var(--border-color);
 }
 
 .control-group {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+}
+.control-group:last-child {
+    margin-bottom: 0;
 }
 
 .control-group label {
     flex-basis: 35%;
     text-align: left;
-    font-size: 0.9em;
+    font-size: 0.95em;
+    color: #444;
 }
 
 .control-group input[type="range"] {
     flex-basis: 50%;
     -webkit-appearance: none;
     appearance: none;
-    height: 8px;
-    background: #444;
+    height: 6px;
+    background: var(--slider-bg);
     border-radius: 5px;
     outline: none;
     cursor: pointer;
+    transition: opacity 0.2s;
 }
+.control-group input[type="range"]:hover {
+    opacity: 0.9;
+}
+
 
 .control-group input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
@@ -79,18 +100,23 @@ body {
     height: 20px;
     background: var(--primary-color);
     border-radius: 50%;
+    border: 3px solid var(--container-bg);
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
 }
 
 .control-group input[type="range"]::-moz-range-thumb {
-    width: 20px;
-    height: 20px;
+    width: 16px; /* Firefoxではサイズ計算が異なる場合がある */
+    height: 16px;
     background: var(--primary-color);
     border-radius: 50%;
+    border: 3px solid var(--container-bg);
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
 }
 
 
 .control-group span {
     flex-basis: 10%;
     text-align: right;
-    font-weight: bold;
+    font-weight: 700;
+    color: var(--primary-color);
 }
