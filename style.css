@@ -1,0 +1,96 @@
+:root {
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --primary-color: #00bcd4;
+    --container-bg: #2c2c2c;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+}
+
+.header h1 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.header p {
+    font-size: 0.9em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+#canvas-container {
+    margin-bottom: 20px;
+    display: inline-block; /* 中央揃えのため */
+    border: 1px solid #444;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+#controls {
+    background-color: var(--container-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.control-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.control-group label {
+    flex-basis: 35%;
+    text-align: left;
+    font-size: 0.9em;
+}
+
+.control-group input[type="range"] {
+    flex-basis: 50%;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 8px;
+    background: #444;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+.control-group input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--primary-color);
+    border-radius: 50%;
+}
+
+.control-group input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: var(--primary-color);
+    border-radius: 50%;
+}
+
+
+.control-group span {
+    flex-basis: 10%;
+    text-align: right;
+    font-weight: bold;
+}
