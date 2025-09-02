@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>インタラクティブ分散アート</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>分子分散アート</h1>
+            <p>
+                これは、化学における「分子の分散技術」をテーマにしたインタラクティブアートです。<br>
+                スライダーを操作して、粒子が美しく「分散」する状態と、固まってしまう「凝集」の状態を創り出してみてください。
+            </p>
+        </div>
+
+        <div id="canvas-container">
+            </div>
+
+        <div id="controls">
+            <div class="control-group">
+                <label for="polymerSlider">ポリマー設計 (分散剤の性能)</label>
+                <input type="range" id="polymerSlider" min="0" max="100" value="70">
+                <span id="polymerValue">70</span>
+            </div>
+            <div class="control-group">
+                <label for="concentrationSlider">粒子濃度</label>
+                <input type="range" id="concentrationSlider" min="50" max="300" value="150">
+                <span id="concentrationValue">150</span>
+            </div>
+            <div class="control-group">
+                <label for="energySlider">環境エネルギー (動きの活発さ)</label>
+                <input type="range" id="energySlider" min="0" max="100" value="30">
+                <span id="energyValue">30</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.js"></script>
+    <script src="sketch.js"></script>
+</body>
+</html>
